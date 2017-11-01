@@ -1,0 +1,247 @@
+\documentclass{llncs}
+\usepackage[latin1]{inputenc}
+\usepackage[cmex10]{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{color}
+\usepackage{enumerate}
+\usepackage{pdflscape}
+\usepackage{float}
+\usepackage{tcolorbox}
+\usepackage {bsymb,b2latex}
+\usepackage{fancyhdr,lastpage,color}
+\usepackage{pgfgantt}
+\usepackage{rotating}
+\usepackage[graphicx]{realboxes}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+
+\usepackage{tikz}
+
+
+
+\usetikzlibrary{positioning}
+\newcommand{\MonetaryLevel}{Monetary level}
+\newcommand{\RealLevel}{Real level}
+\newcommand{\Firms}{Firms}
+\newcommand{\Households}{Households}
+\newcommand{\Banks}{Banks}
+\newcommand{\Commodities}{Commodities}
+\newcommand{\LaborPower}{Labor power}
+\newcommand{\Wages}{Wages}
+\newcommand{\Consumption}{Consumption}
+\newcommand{\Credits}{Credits}
+\newcommand{\Withdrawals}{Withdrawals}
+\newcommand{\Deposits}{Deposits}
+\newcommand{\Repayments}{Repayments}
+
+\newcommand{\yslant}{0.5}
+\newcommand{\xslant}{-0.6}
+
+
+
+
+\floatstyle{plaintop}
+\restylefloat{table}
+
+
+
+\newcommand{\VALID}		{\mathsf{valid}}
+\newcommand{\INVALID}	{\mathsf{invalid}}
+\newcommand{\UNKNOWN}	{\mathsf{unknown}}
+\newcommand{\FAILED}	{\mathsf{failed}}
+\newcommand{\prover}	{\mathrm{prover}}
+\newcommand{\INTER}[1] 	{\llbracket #1 \rrbracket}
+
+\providecommand{\keywords}[1]{\textbf{{Keyword:}} #1}
+
+\usepackage{bsymb}
+\input{railheader}
+\input{convheader}
+
+\newganttchartelement*{mymilestone}{
+	mymilestone/.style={
+		shape=isosceles triangle,
+		inner sep=0pt,
+		draw=cyan,
+		top color=white,
+		bottom color=cyan!50
+	},
+	mymilestone incomplete/.style={
+		/pgfgantt/mymilestone,
+		draw=yellow,
+		bottom color=yellow!50
+	},
+	mymilestone label font=\slshape,
+	mymilestone left shift=0pt,
+	mymilestone right shift=0pt
+}
+
+\newgantttimeslotformat{stardate}{%
+	\def\decomposestardate##1.##2\relax{%
+		\def\stardateyear{##1}\def\stardateday{##2}%
+	}%
+	\decomposestardate#1\relax%
+	\pgfcalendardatetojulian{\stardateyear-01-01}{#2}%
+	\advance#2 by-1\relax%
+	\advance#2 by\stardateday\relax%
+}
+
+
+
+\begin{document}
+
+\title{Title of the ABZ Paper / 14p.}
+
+
+\author{Paulius Stankaitis, Alexei Iliasov,  Alexander Romanovsky and Yamine Ait-Ameur}
+
+\institute{Centre for Software Reliability, \\ Newcastle University, \\
+	Newcastle upon Tyne, UK \vspace{0.2cm}\\
+  \email{\{p.stankaitis|alexei.iliasov|alexander.romanovsky\}@ncl.ac.uk}
+}
+
+\date{}
+
+\maketitle
+
+
+
+\begin{abstract}
+
+\end{abstract}
+
+
+
+\section{Introduction/1.5p}
+
+
+\newpage
+\section{Event-B}
+
+%The Event-B formal specification language has been used a number of times in developing railway models . 
+The Event-B mathematical language used in the system development and analysis is an evolution of the classical B
+method \cite{abrial2005b} and Action Systems \cite{ActionSystems}. %Perhaps due to the success of the B method and a good tool support Event-B has also been a popular language choice for modelling railway systems \cite{butler2002system, EventBBook, kiss2016developing}. 
+The formal specification language offers a fairly high-level mathematical language
+based on a first-order logic and Zermelo-Fraenkel set theory as well as an economical yet expressive modelling notation.
+The formalism belongs to a family of state-based modelling languages where a state of a discrete system is simply a
+collection of variables and constants whereas the transition is a guarded variable transformation. 
+
+\begin{figure}[h]
+	\footnotesize{
+		\centering
+		\EventBSystem{M}{
+			\EventBSees{Context}
+			\EventBVarsC{v}
+			\EventBInvC{I(c, s, v)}
+			\EventBInitC{R(c, s, v')}
+			\EventBEvents{
+				\EventBAnyC{E_1}{vl}{g(c, s, vl, v)}{S(c, s, vl, v, v')}
+				\dots \\
+			}
+		}  
+	}
+	\caption{Event-B machine structure.}
+	\label{EventB_structure}
+\end{figure}
+
+A cornerstone of the Event-B method is the step-wise development that facilitates a gradual design of a system implementation through a number of correctness preserving refinement steps. The model development starts with a creation of a very abstract specification and the model is completed
+when all requirements and specifications are covered. The Event-B model is made of two key components - machines and contexts which respectively describe dynamic and static parts of the system. The context contains modeller
+declared constants and associated axioms which can be made visible in machines. The dynamic part of the model contains
+variables which are constrained by invariants and initialised by an action. The state variables are then transformed by actions which are part of events and the modeller may use predicate
+guards to denote when event is triggered (see Fig. 1). Specifying a model is not sufficient one must provide evidence about the correctness of the model as well. The Event-B
+method is a proof driven specification language where model  correctness is demonstrated by generating and discharging
+proof obligations - theorems in the first-order logic. The model is considered to be correct when all proof obligations
+are discharged. \\
+
+
+
+
+
+\noindent \textbf{Related Work.} To authors knowledge the earliest attempt to formally analyse distributed railway solid-state interlocking systems was completed by Morley \cite{morley1996safety}. In this interesting work author developed a formal model of a protocol for a cross boundary route locking and releasing mechanism. By analysing temporal properties of the model he discovered that in certain scenarios safety properties can be violated. Few years later a paper by Cimatti et al. \cite{cimatti1999formal} presented an industrially driven formal methods study where authors formally modelled a communication protocol for safety-critical distributed systems including distributed railway interlocking systems. Their method used Statecharts diagrams to specify high level protocol properties and the \scriptsize{OBJECT}\normalsize{GEODE} model checker for the protocol validation. In other work a different concept of distributed railway control system was introduced by Haxthausen and Peleska \cite{haxthausen2000formal}. Their presented engineering concept of the control system relied on a radio based communication and switch boxes - systems which can only control a single railway point. Authors formally modelled the system with the RAISE \cite{george1995raise} specification language  which allowed to develop a formal model incrementally using a refinement process and prove refinement and safety properties with available justification tools. The timing properties of the design were considered in the extended work \cite{madsen2005modelling}. Similar ideas for distributed railway interlocking system were also presented in \cite{banci2004role, hei2008toward} where authors used Statecharts and Petri Nets to model and verify decentralised railway interlocking. 
+
+%At the same time Andr{\'e} Platzer introduced an alternative approach to exploring a state-space with model checkers in verifying systems safety. A developed formalism and logic for reasoning about hybrid systems uses a deductive verification and can be implemented in a KeyMaera X verification tool\cite{platzer2008differential, platzer2008keymaera}. The later work presented  a case study where differential dynamic logic was applied for a safety verification of the European Train Control System \cite{platzer2009european}. Differential Dynamic Logic was also used to model and verify a handover protocol between two trackside train control systems (radio-block centres) by Liu et al. \cite{liu2011formal}. In a work by Cimatti et al. \cite{Cimatti2009} authors proposed a different logic based on the temporal logic with regular expressions. Their motivation was driven by a need of the automatic verification method for verifying hybrid requirements for hybrid railway system. A more recent work by Iliasov et al. \cite{iliasov2014unified} proposed a domain specific language - Unified Train Driving Policy. The formal notation allows to express both static and dynamic properties of railway in readable syntax which can be interpreted by railway engineers without prior knowledge of formal methods. A few recent formal methods projects on cyber-physical systems applied their novel techniques for modelling and verification of hybrid railway systems  \cite{intocps, advanced, atr2}. 
+
+\begin{itemize}
+	\item write few sentences on how our work is different from theirs.
+	\item discuss relevant papers in Event-B for example \cite{HOANG2009879}
+\end{itemize}
+
+
+\newpage
+
+\section{Protocol Description/1-1.5p.}
+
+\begin{tikzpicture}[scale=1.1,every node/.style={minimum size=1cm},on grid]
+
+% Real level
+\begin{scope}[
+yshift=-120,
+every node/.append style={yslant=\yslant,xslant=\xslant},
+yslant=\yslant,xslant=\xslant
+] 
+% The frame:
+\draw[black, dashed, thin] (0,0) rectangle (7,7); 
+	\fill[black]
+	(0.5,6.5) node[right, scale=.7] {Interlocking};	
+\end{scope}
+
+\begin{scope}[
+yshift=-20,
+every node/.append style={yslant=\yslant,xslant=\xslant},
+yslant=\yslant,xslant=\xslant
+] 
+% The frame:
+\draw[black, dashed, thin] (0,0) rectangle (7,7); 
+% Agents:
+	
+	\fill[black]
+	(0.5,6.5) node[right, scale=.7] {Interlocking}
+	(2.2,3) node  [scale=.6] (p1) {R$_1$} 
+	(4.8,1) node [scale=.6] (p2) {R$_2$};
+	
+	\draw [->] (p1) -- (p2);	
+	
+		
+
+\end{scope}
+
+ 
+\end{tikzpicture}
+
+
+\noindent \textbf{System Requirement 1.} Cross boundary route locking and releasing protocol must ensure that a cross boundary route has been reserved only to a single train at a time. \\
+
+\noindent \textbf{System Requirement 2.} Cross boundary route locking mechanism must ensure that a locked cross boundary route has points properly positioned and signals sets.
+
+\newpage
+\section{Cross Boundary Interlocking Protocol Formal Model in Event-B/5p.}
+
+
+\noindent \textbf{Environment Assumptions 1.}
+
+
+
+
+
+
+\newpage
+\section{Protocol Validation with the ProB/SafeCap Platform/1.5p}
+
+\newpage
+\section{Future Work and Conclusions/0.5p}
+
+\noindent \textbf{Acknowledgments.} This work is supported by an iCASE studentship (EPSRC and Siemens Rail Automation). We are grateful to our colleagues from Siemens Rail Automation for invaluable feedback.
+
+
+\bibliographystyle{plain}
+\bibliography{main}
+
+
+
+
+
+\end{document}

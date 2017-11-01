@@ -1,0 +1,66 @@
+\begin{thebibliography}{10}
+
+\bibitem{abrial2005b}
+J.-R. Abrial.
+\newblock {\em The B-book: Assigning Programs to Meanings}.
+\newblock Cambridge University Press, New York, NY, USA, 1996.
+
+\bibitem{ActionSystems}
+R.-J. Back.
+\newblock Refinement calculus, part ii: Parallel and reactive programs.
+\newblock In {\em Proceedings on Stepwise Refinement of Distributed Systems:
+  Models, Formalisms, Correctness}, REX workshop, pages 67--93, New York, NY,
+  USA, 1990. Springer-Verlag New York, Inc.
+
+\bibitem{banci2004role}
+M.~Banci, A.~Fantechi, and S.~Gnesi.
+\newblock The role of formal methods in developing a distributed railway
+  interlocking system.
+\newblock In {\em Proceedings of the 5th Symposium on Formal Methods for
+  Automation and Safety in Railway and Automotive Systems (FORMS/FORMAT 2004)},
+  pages 220--230, 2004.
+
+\bibitem{cimatti1999formal}
+A.~Cimatti, P.~L. Pieraccini, R.~Sebastiani, P.~Traverso, and A.~Villafiorita.
+\newblock Formal specification and validation of a vital communication
+  protocol.
+\newblock In {\em Proceedings of the Wold Congress on Formal Methods in the
+  Development of Computing Systems-Volume II}, FM '99, pages 1584--1604.
+  Springer-Verlag, 1999.
+
+\bibitem{george1995raise}
+C.~George, A.E. Haxthausen, S.~Hughes, R.~Milne, S.~Prehn, and J.S. Pedersen.
+\newblock {\em The RAISE development method}.
+\newblock Prentice Hall Int., 1995.
+
+\bibitem{haxthausen2000formal}
+A.E. Haxthausen and J.~Peleska.
+\newblock Formal development and verification of a distributed railway control
+  system.
+\newblock {\em IEEE Transactions on Software Engineering}, 26(8):687--701,
+  2000.
+
+\bibitem{hei2008toward}
+X.~Hei, S.~Takahashi, and N.~Hideo.
+\newblock Toward developing a decentralized railway signalling system using
+  petri nets.
+\newblock In {\em Proceedings of the IEEE Conference on Robotics, Automation
+  and Mechatronics}, pages 851--855, 2008.
+
+\bibitem{HOANG2009879}
+Thai~Son Hoang, Hironobu Kuruma, David Basin, and Jean-Raymond Abrial.
+\newblock Developing topology discovery in event-b.
+\newblock {\em Science of Computer Programming}, 74(11):879 -- 899, 2009.
+
+\bibitem{madsen2005modelling}
+M.S. Madsen and M.M. B{\ae}k.
+\newblock Modelling a distributed railway control system.
+\newblock Master's thesis, Technical University of Denmark, DTU, DK-2800 Kgs.
+  Lyngby, Denmark, 2005.
+
+\bibitem{morley1996safety}
+M.J. Morley.
+\newblock {\em Safety assurance in interlocking design}.
+\newblock PhD thesis, 1996.
+
+\end{thebibliography}

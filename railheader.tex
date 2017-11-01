@@ -1,0 +1,78 @@
+\newcommand{\STATE}		{\operatorname{\Omega}}
+\newcommand{\fst}		{\operatorname{fst}}
+\newcommand{\lst}		{\operatorname{lst}}
+\newcommand{\elm}		{\operatorname{elm}}
+
+\newcommand{\FN}[1] 	{{\color{dblue}{\mathrm{#1}}}}
+\newcommand{\SET}[1] 	{\mathrm{\textsc{#1}}}
+\newcommand{\OP}[1] 	{\mathbf{#1}}
+\newcommand{\ALSS}		{\prec}
+\newcommand{\ALSE}		{\preccurlyeq}
+
+\newcommand{\CP}[1] 	{{\color{black}{\mathsf{#1}}}}
+\newcommand{\LG}[1] 	{{\color{black}{#1}}}
+
+\newcommand{\CLEAR} 	{{\color{dgreen}{\mathsf{clear}}}}
+\newcommand{\NORMAL} 	{{\color{dgreen}{\mathsf{normal}}}}
+\newcommand{\REVERSE} 	{{\color{dgreen}{\mathsf{reverse}}}}
+\newcommand{\OCC} 		{{\color{dgreen}{\mathsf{occupied}}}}
+\newcommand{\LOCKED} 	{{\color{dgreen}{\mathsf{locked}}}}
+
+\newcommand{\PART}[1] 	{{\color{dgreen}{\mathrm{#1}}}}
+\newcommand{\ELM}[1] 	{{\color{dblue}{\mathrm{#1}}}}
+
+
+
+\newcommand{\NODE}		{\CP{N}}
+\newcommand{\TRACK}		{\CP{T}}
+\newcommand{\ROUTE}		{\CP{R}}
+\newcommand{\LINE}		{\CP{L}}
+\newcommand{\LINEA}		{\CP{L_A}}
+\newcommand{\POINT}		{\CP{P}}
+\newcommand{\AMBIT}		{\CP{A}}
+\newcommand{\SECTION}	{\CP{S}}
+\newcommand{\JUNCTION}	{\CP{J}}
+\newcommand{\RRES}		{\FN{rr}}
+\newcommand{\PRES}		{\FN{pr}}
+\newcommand{\RREQ}		{\FN{rr}}
+\newcommand{\XRULE}		{\FN{rule}}
+\newcommand{\RINT}[1]	{\left \llbracket \begin{array}{@{}l@{}} #1 \end{array} \right \rrbracket}
+
+\newcommand{\TLINE}		{\FN{\ell}}
+\newcommand{\FRONT}		{\FN{hd}}	
+\newcommand{\TAIL}		{\FN{tl}}
+\newcommand{\TRES}		{\FN{lk}}
+\newcommand{\RSET}		{\FN{rs}}
+\newcommand{\STATEP}	{\FN{p}}
+\newcommand{\STATER}	{\FN{r}}
+
+\newcommand{\FROUTE}	{\FN{rhd}}
+\newcommand{\TROUTE}	{\FN{rtl}}
+\newcommand{\TRAN}		{\rightarrow}	
+\newcommand{\TRAIN}		{\SET{tr}}	
+\newcommand{\AROUTE}	{\bar{\mathsf{R}}}
+\newcommand{\CANMOVE}	{\mathsf{canmove}}	
+\newcommand{\OCCUPIED}	{\mathsf{occupied}}
+
+\newcommand{\CX}[1]		{& {\LG{\left [ #1\right ]}}}
+\newcommand{\CXT}[1]	{& \LG{\left [ \text{#1}\right ]}}
+
+\newcommand{\RULE}[2] 	{
+\frac{
+		\begin{array}{@{}l@{~~~}l}
+			#1
+		\end{array}
+	}{
+		\begin{array}{@{}l}
+			#2
+		\end{array}
+	}
+}
+
+
+
+\definecolor{orange}{rgb}{0.9,1.0,0.9}
+\definecolor{dgreen}{rgb}{0.0,0.4,0.0}
+\definecolor{dblue}{rgb}{0.0,0.0,0.6}
+\definecolor{lgray}{rgb}{0.4,0.4,0.4}
+\definecolor{gray}{rgb}{0.3,0.3,0.3}
